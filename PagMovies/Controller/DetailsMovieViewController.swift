@@ -24,11 +24,14 @@ class DetailsMovieViewController: UIViewController {
     }
     
     private func setup(movie:Movie) {
+        
         if let backdropPath = movie.backdropPath {
             Utils().loadImage(backdropPath, movieImageView)
         }
+        if let releaseDate = movie.releaseDate {
+            dateLabel.text = Utils().changeDate(releaseDate)
+        }
         titleLabel.text = movie.title
-        dateLabel.text = movie.releaseDate
         overviewLabel.text = movie.overview
     }
 

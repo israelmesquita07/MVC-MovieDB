@@ -18,4 +18,15 @@ class Utils {
             imageView.kf.setImage(with: urlImage)
         }
     }
+    
+    func changeDate(_ date:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.long
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let convertedDate = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let date = dateFormatter.string(from: convertedDate!)
+        return date
+    }
+    
 }

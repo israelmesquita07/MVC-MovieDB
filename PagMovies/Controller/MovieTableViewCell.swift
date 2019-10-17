@@ -20,11 +20,14 @@ class MovieTableViewCell: UITableViewCell {
     }
     
     func setupCell(_ movie: Movie) {
+        
         if let backdropPath = movie.backdropPath {
             Utils().loadImage(backdropPath, movieImageView)
         }
+        if let releaseDate = movie.releaseDate {
+            dateLabel.text = Utils().changeDate(releaseDate)
+        }
         titleLabel.text = movie.title
-        dateLabel.text = movie.releaseDate
         genderLabel.text = "Aventura"
     }
     
