@@ -12,7 +12,7 @@ struct Result: Decodable {
     let results:[Movie]?
 }
 
-struct Movie: Decodable {
+class Movie: Decodable {
     let title: String?
     let overview: String?
     let releaseDate: String?

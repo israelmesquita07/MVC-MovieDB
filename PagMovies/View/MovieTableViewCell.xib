@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" constant="100" id="pth-BA-2B1"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfI-Jr-mIa">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfI-Jr-mIa">
                         <rect key="frame" x="116" y="8" width="188" height="24"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                         <nil key="textColor"/>
@@ -76,6 +76,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateLabel" destination="h5T-ti-Vxy" id="P1G-vH-TIx"/>
+                <outlet property="genderLabel" destination="kbs-ZV-DlZ" id="hvn-RO-Ur8"/>
+                <outlet property="movieImageView" destination="Rvo-cZ-S1Q" id="c2R-A5-nHm"/>
+                <outlet property="titleLabel" destination="GfI-Jr-mIa" id="sas-xH-CU4"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </tableViewCell>
     </objects>

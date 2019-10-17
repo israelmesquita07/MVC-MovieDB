@@ -8,8 +8,11 @@
 
 import UIKit
 
-class DetailsMovieViewController: UIViewController {
-    
+protocol DetailsMovieProtocol {
+    func setup(movie:Movie)
+}
+
+class DetailsMovieViewController: UIViewController, DetailsMovieProtocol {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,11 +21,12 @@ class DetailsMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
     }
     
-    private func setup() {
-        
+    func setup(movie:Movie) {
+        titleLabel.text = movie.title
+        dateLabel.text = movie.releaseDate
+        overviewLabel.text = movie.overview
     }
     
 }

@@ -17,19 +17,20 @@ class API: APIService {
     
     func getMovies(onComplete:@escaping(Result) -> Void, onError:@escaping(Error) -> Void) {
         if let url = URL(string: Endpoints.getMovies) {
-            let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 
                 if error == nil {
                     guard let data = data else { return }
-                    if let dictJson = self?.parseDataToDictionary(data) {
+                    if let dictJson = self.parseDataToDictionary(data) {
                         
                         if let model = try? JSONDecoder().decode(Result.self, from: JSONSerialization.data(withJSONObject: dictJson, options: .prettyPrinted)) {
                             onComplete(model)
                         }
                     }
                     
+                } else {
+                    onError(error!)
                 }
-                onError(error!)
             }
             dataTask.resume()
         }
@@ -49,8 +50,9 @@ class API: APIService {
                             onComplete(model)
                         }
                     }
+                } else {
+                    onError(error!)
                 }
-                onError(error!)
             }
             dataTask.resume()
         }
