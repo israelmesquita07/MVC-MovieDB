@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Movie: Decodable {
-    let results:[Result]?
+struct Result: Decodable {
+    let results:[Movie]?
 }
 
-struct Result: Decodable {
+struct Movie: Decodable {
     let title: String?
     let overview: String?
     let releaseDate: String?

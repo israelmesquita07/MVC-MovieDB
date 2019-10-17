@@ -9,13 +9,13 @@
 import Foundation
 
 protocol APIService {
-    func getMovies(onComplete:@escaping(Movie) -> Void, onError:@escaping(Error) -> Void)
+    func getMovies(onComplete:@escaping(Result) -> Void, onError:@escaping(Error) -> Void)
     func getGenres(onComplete:@escaping(Genres) -> Void, onError:@escaping(Error) -> Void)
 }
 
 class API: APIService {
     
-    func getMovies(onComplete:@escaping(Movie) -> Void, onError:@escaping(Error) -> Void) {
+    func getMovies(onComplete:@escaping(Result) -> Void, onError:@escaping(Error) -> Void) {
         if let url = URL(string: Endpoints.getMovies) {
             let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
                 
@@ -23,7 +23,7 @@ class API: APIService {
                     guard let data = data else { return }
                     if let dictJson = self?.parseDataToDictionary(data) {
                         
-                        if let model = try? JSONDecoder().decode(Movie.self, from: JSONSerialization.data(withJSONObject: dictJson, options: .prettyPrinted)) {
+                        if let model = try? JSONDecoder().decode(Result.self, from: JSONSerialization.data(withJSONObject: dictJson, options: .prettyPrinted)) {
                             onComplete(model)
                         }
                     }
