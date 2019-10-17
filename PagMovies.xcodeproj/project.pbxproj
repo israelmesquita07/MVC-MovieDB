@@ -12,6 +12,8 @@
 		586E14B2235800CA0056C771 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E14B0235800CA0056C771 /* Genres.swift */; };
 		586E14B423589D4A0056C771 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E14B323589D4A0056C771 /* FavoritesViewController.swift */; };
 		586E14B523589D4A0056C771 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E14B323589D4A0056C771 /* FavoritesViewController.swift */; };
+		586E14B72358D6B40056C771 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E14B62358D6B40056C771 /* Utils.swift */; };
+		586E14B82358D6B40056C771 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E14B62358D6B40056C771 /* Utils.swift */; };
 		589105AD2356496900F13419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589105AC2356496900F13419 /* AppDelegate.swift */; };
 		589105AF2356496900F13419 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589105AE2356496900F13419 /* SceneDelegate.swift */; };
 		589105B42356496900F13419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589105B22356496900F13419 /* Main.storyboard */; };
@@ -47,6 +49,7 @@
 		28F2E004764A72742CD9E6AC /* Pods-PagMoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagMoviesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PagMoviesTests/Pods-PagMoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		586E14B0235800CA0056C771 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		586E14B323589D4A0056C771 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		586E14B62358D6B40056C771 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		589105A92356496900F13419 /* PagMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PagMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		589105AC2356496900F13419 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		589105AE2356496900F13419 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +105,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		586E14B92358D6B90056C771 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				586E14B62358D6B40056C771 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		589105A02356496900F13419 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +142,7 @@
 				589105DE2356DED300F13419 /* View */,
 				589105DF2356DEF700F13419 /* Controller */,
 				589105E72356DF4100F13419 /* Service */,
+				586E14B92358D6B90056C771 /* Utils */,
 				589105B52356496C00F13419 /* Assets.xcassets */,
 				589105BA2356496C00F13419 /* Info.plist */,
 			);
@@ -375,6 +387,7 @@
 				589105AF2356496900F13419 /* SceneDelegate.swift in Sources */,
 				589105DC2356DDC800F13419 /* DetailsMovieViewController.swift in Sources */,
 				589105D92356DD9800F13419 /* MoviesViewController.swift in Sources */,
+				586E14B72358D6B40056C771 /* Utils.swift in Sources */,
 				589105EC2356E30F00F13419 /* Endpoints.swift in Sources */,
 				586E14B423589D4A0056C771 /* FavoritesViewController.swift in Sources */,
 				589105E92356DFC700F13419 /* API.swift in Sources */,
@@ -387,6 +400,7 @@
 			files = (
 				589105C42356496C00F13419 /* PagMoviesTests.swift in Sources */,
 				589105DD2356DDC800F13419 /* DetailsMovieViewController.swift in Sources */,
+				586E14B82358D6B40056C771 /* Utils.swift in Sources */,
 				586E14B523589D4A0056C771 /* FavoritesViewController.swift in Sources */,
 				589105E22356DF2500F13419 /* Result.swift in Sources */,
 				589105DA2356DD9D00F13419 /* MoviesViewController.swift in Sources */,

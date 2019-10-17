@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
 
@@ -22,19 +21,11 @@ class MovieTableViewCell: UITableViewCell {
     
     func setupCell(_ movie: Movie) {
         if let backdropPath = movie.backdropPath {
-            loadImage(backdropPath)
+            Utils().loadImage(backdropPath, movieImageView)
         }
         titleLabel.text = movie.title
         dateLabel.text = movie.releaseDate
         genderLabel.text = "Aventura"
-    }
-    
-    private func loadImage(_ backdropPath:String) {
-        let urlString = "\(Endpoints.imageURL)\(backdropPath)"
-        if let urlImage = URL(string: urlString) {
-            movieImageView.kf.indicatorType = .activity
-            movieImageView.kf.setImage(with: urlImage)
-        }
     }
     
 }

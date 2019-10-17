@@ -78,43 +78,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4D6-iT-pUi">
-                                <rect key="frame" x="0.0" y="44" width="375" height="256"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="8nJ-PK-DTZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twq-Bu-Xtu">
-                                <rect key="frame" x="12" y="330" width="48" height="21"/>
+                                <rect key="frame" x="12" y="286" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSg-xb-aNS">
-                                <rect key="frame" x="80" y="330" width="43.5" height="21"/>
+                                <rect key="frame" x="80" y="286" width="43.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-Uv-VDm">
-                                <rect key="frame" x="12" y="381" width="41" height="21"/>
+                                <rect key="frame" x="12" y="337" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-9b-vvl">
-                                <rect key="frame" x="73" y="381" width="36" height="21"/>
+                                <rect key="frame" x="73" y="337" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopse:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Y1-Rj-R4h">
-                                <rect key="frame" x="12" y="432" width="66" height="21"/>
+                                <rect key="frame" x="12" y="388" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopse" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAZ-lZ-Z8L">
-                                <rect key="frame" x="16" y="482" width="343" height="17"/>
+                                <rect key="frame" x="16" y="438" width="343" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -150,33 +150,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="hFm-9b-vvl" id="iyW-V3-xkj"/>
-                        <outlet property="imageView" destination="4D6-iT-pUi" id="T0F-7Q-WBi"/>
+                        <outlet property="movieImageView" destination="4D6-iT-pUi" id="T0F-7Q-WBi"/>
                         <outlet property="overviewLabel" destination="BAZ-lZ-Z8L" id="vif-oa-d5q"/>
                         <outlet property="titleLabel" destination="qSg-xb-aNS" id="OTU-gz-dxd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70T-Z2-4hI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5887.1999999999998" y="129.98500749625188"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="ne4-Kq-OyU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="393-bA-CiI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VI8-Sd-0EX"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mNL-Sx-d2e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="V2P-Aj-gKB" kind="relationship" relationship="rootViewController" id="GoJ-u0-4Wx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7oN-LX-MJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4919.1999999999998" y="129.98500749625188"/>
+            <point key="canvasLocation" x="4801" y="130"/>
         </scene>
         <!--Item-->
         <scene sceneID="9g2-fn-7N5">
@@ -222,6 +203,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jAt-4i-FGB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="irj-Wh-dFm">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

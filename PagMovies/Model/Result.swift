@@ -28,4 +28,3 @@ class Movie: Decodable {
     }
     
 }
-
