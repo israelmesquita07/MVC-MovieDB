@@ -11,8 +11,8 @@ import UIKit
 class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private let cellIdentifier = "movieCell"
     private var moviesArray:[Movie] = []
+    private var isOrderAsc: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +32,16 @@ class MoviesViewController: UIViewController {
     private func setup() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
     }
     
+    @IBAction func sortAscAndDesc(_ sender: UIBarButtonItem) {
+        moviesArray = isOrderAsc ? Utils().descendingSortMovies(movies: moviesArray) : Utils().ascendingSortMovies(movies: moviesArray)
+        isOrderAsc = !isOrderAsc
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
 
 
@@ -47,7 +54,7 @@ extension MoviesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! MovieTableViewCell
         let movie = moviesArray[indexPath.row]
         cell.setupCell(movie)
         return cell

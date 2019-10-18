@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct Result: Decodable {
+struct Result: Codable {
     let results:[Movie]?
 }
 
-class Movie: Decodable {
+class Movie: Codable {
+    let id: Double?
     let title: String?
     let overview: String?
     let releaseDate: String?
@@ -20,6 +21,7 @@ class Movie: Decodable {
     let genreIds: [Int]?
     
     enum CodingKeys: String, CodingKey {
+        case id
         case title
         case overview
         case releaseDate = "release_date"

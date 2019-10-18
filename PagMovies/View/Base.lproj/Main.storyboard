@@ -29,7 +29,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Filmes" id="6fu-4b-MCq"/>
+                    <navigationItem key="navigationItem" title="Filmes" id="6fu-4b-MCq">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.up.arrow.down" catalog="system" id="krE-2m-8Hw">
+                            <connections>
+                                <action selector="sortAscAndDesc:" destination="BYZ-38-t0r" id="sys-8M-cBX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="O5d-pL-lwS" id="a7g-5b-kJ8"/>
                     </connections>
@@ -114,16 +120,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinopse" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAZ-lZ-Z8L">
-                                <rect key="frame" x="16" y="438" width="343" height="17"/>
+                                <rect key="frame" x="16" y="413" width="343" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFM-fR-NDT">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BlU-HM-wIy"/>
+                                </constraints>
+                                <state key="normal" title="Favoritar"/>
+                                <connections>
+                                    <action selector="favoriteMovie:" destination="V2P-Aj-gKB" eventType="touchUpInside" id="ADv-8P-cRw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="BAZ-lZ-Z8L" firstAttribute="leading" secondItem="YoK-ZV-8QW" secondAttribute="leading" constant="16" id="0J0-QM-Pal"/>
-                            <constraint firstItem="YoK-ZV-8QW" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BAZ-lZ-Z8L" secondAttribute="bottom" constant="20" id="1bL-CV-Ghi"/>
                             <constraint firstItem="YoK-ZV-8QW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qSg-xb-aNS" secondAttribute="trailing" constant="16" id="27n-63-fki"/>
                             <constraint firstItem="4D6-iT-pUi" firstAttribute="top" secondItem="YoK-ZV-8QW" secondAttribute="top" id="2ly-Y5-0wN"/>
                             <constraint firstItem="5Y1-Rj-R4h" firstAttribute="leading" secondItem="5xR-Uv-VDm" secondAttribute="leading" id="6fB-7p-WGN"/>
@@ -135,21 +150,24 @@
                             <constraint firstItem="5Y1-Rj-R4h" firstAttribute="top" secondItem="5xR-Uv-VDm" secondAttribute="bottom" constant="30" id="Kzo-43-SMm"/>
                             <constraint firstItem="twq-Bu-Xtu" firstAttribute="leading" secondItem="YoK-ZV-8QW" secondAttribute="leading" constant="12" id="Ozc-WD-PqK"/>
                             <constraint firstItem="4D6-iT-pUi" firstAttribute="leading" secondItem="YoK-ZV-8QW" secondAttribute="leading" id="PZ6-0S-eRo"/>
+                            <constraint firstItem="IFM-fR-NDT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BAZ-lZ-Z8L" secondAttribute="bottom" constant="10" id="T1c-Br-BzT"/>
                             <constraint firstItem="YoK-ZV-8QW" firstAttribute="trailing" secondItem="BAZ-lZ-Z8L" secondAttribute="trailing" constant="16" id="U7c-Ug-5TI"/>
                             <constraint firstItem="5xR-Uv-VDm" firstAttribute="top" secondItem="twq-Bu-Xtu" secondAttribute="bottom" constant="30" id="WaZ-fT-tjQ"/>
+                            <constraint firstItem="YoK-ZV-8QW" firstAttribute="trailing" secondItem="IFM-fR-NDT" secondAttribute="trailing" id="Y7I-CQ-PdK"/>
                             <constraint firstItem="hFm-9b-vvl" firstAttribute="leading" secondItem="5xR-Uv-VDm" secondAttribute="trailing" constant="20" id="ZP1-G4-dhe"/>
+                            <constraint firstItem="IFM-fR-NDT" firstAttribute="leading" secondItem="YoK-ZV-8QW" secondAttribute="leading" id="ePW-bA-Vkp"/>
                             <constraint firstItem="qSg-xb-aNS" firstAttribute="leading" secondItem="twq-Bu-Xtu" secondAttribute="trailing" constant="20" id="gb0-Xd-S0c"/>
                             <constraint firstItem="twq-Bu-Xtu" firstAttribute="top" secondItem="4D6-iT-pUi" secondAttribute="bottom" constant="30" id="rh8-d6-gXg"/>
                             <constraint firstItem="5xR-Uv-VDm" firstAttribute="leading" secondItem="twq-Bu-Xtu" secondAttribute="leading" id="x2n-6Q-FQa"/>
-                            <constraint firstItem="BAZ-lZ-Z8L" firstAttribute="top" secondItem="5Y1-Rj-R4h" secondAttribute="bottom" constant="29" id="zVr-OU-Q8r"/>
+                            <constraint firstItem="YoK-ZV-8QW" firstAttribute="bottom" secondItem="IFM-fR-NDT" secondAttribute="bottom" id="xy8-v0-Puj"/>
+                            <constraint firstItem="BAZ-lZ-Z8L" firstAttribute="top" secondItem="5Y1-Rj-R4h" secondAttribute="bottom" constant="4" id="zVr-OU-Q8r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YoK-ZV-8QW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detalhes" id="l7g-xw-3pR">
-                        <barButtonItem key="rightBarButtonItem" title="S2" id="mrZ-mw-IgB"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Detalhes" id="l7g-xw-3pR"/>
                     <connections>
                         <outlet property="dateLabel" destination="hFm-9b-vvl" id="iyW-V3-xkj"/>
+                        <outlet property="favoriteButton" destination="IFM-fR-NDT" id="hkC-16-ckB"/>
                         <outlet property="movieImageView" destination="4D6-iT-pUi" id="T0F-7Q-WBi"/>
                         <outlet property="overviewLabel" destination="BAZ-lZ-Z8L" id="vif-oa-d5q"/>
                         <outlet property="titleLabel" destination="qSg-xb-aNS" id="OTU-gz-dxd"/>
@@ -159,11 +177,11 @@
             </objects>
             <point key="canvasLocation" x="4801" y="130"/>
         </scene>
-        <!--Item-->
+        <!--Filmes-->
         <scene sceneID="9g2-fn-7N5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S3v-YT-CGK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="VfG-dN-rzw"/>
+                    <tabBarItem key="tabBarItem" title="Filmes" image="list.dash" catalog="system" id="VfG-dN-rzw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XEE-4a-2lc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -178,11 +196,11 @@
             </objects>
             <point key="canvasLocation" x="2956" y="129.98500749625188"/>
         </scene>
-        <!--Item-->
+        <!--Favoritos-->
         <scene sceneID="Wpc-bs-pdI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aDp-K2-Um1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7Cu-gC-N5M"/>
+                    <tabBarItem key="tabBarItem" title="Favoritos" image="star.fill" catalog="system" id="7Cu-gC-N5M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cev-BK-Umo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -217,4 +235,9 @@
             <point key="canvasLocation" x="2016.8" y="533.88305847076469"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.up.arrow.down" catalog="system" width="64" height="48"/>
+        <image name="list.dash" catalog="system" width="64" height="42"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
 </document>

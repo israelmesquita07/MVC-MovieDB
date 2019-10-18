@@ -29,4 +29,33 @@ class Utils {
         return date
     }
     
+    func saveFavoriteMovies(movies: [Movie]) {
+        
+        let moviesData = try! JSONEncoder().encode(movies)
+        UserDefaults.standard.set(moviesData, forKey: Constants.movieDefaults)
+    }
+    
+    func loadFavoriteMovies() -> [Movie] {
+        
+        if let moviesData = UserDefaults.standard.data(forKey: Constants.movieDefaults) {
+            let movieArray = try! JSONDecoder().decode([Movie].self, from: moviesData)
+            return movieArray
+        }
+        return []
+    }
+    
+    func removeFavoriteMovie(id: Double) {
+        var movies:[Movie] = Utils().loadFavoriteMovies()
+        movies.removeAll(where: { $0.id == id })
+        saveFavoriteMovies(movies: movies)
+    }
+    
+    func ascendingSortMovies(movies: [Movie]) -> [Movie] {
+        return movies.sorted { $0.title!.localizedCaseInsensitiveCompare($1.title!) == ComparisonResult.orderedAscending }
+    }
+    
+    func descendingSortMovies(movies: [Movie]) -> [Movie] {
+        return movies.sorted { $0.title!.localizedCaseInsensitiveCompare($1.title!) == ComparisonResult.orderedDescending }
+    }
+    
 }

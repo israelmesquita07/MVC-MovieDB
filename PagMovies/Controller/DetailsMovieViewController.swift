@@ -14,6 +14,7 @@ class DetailsMovieViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     public var movie: Movie?
     
@@ -25,6 +26,10 @@ class DetailsMovieViewController: UIViewController {
     
     private func setup(movie:Movie) {
         
+        let movies:[Movie] = Utils().loadFavoriteMovies()
+        if isFavorite(movies: movies, movie: movie) {
+            changeLayoutButton(favoriteButton, title: "Sou favorito!", color: .red)
+        }
         if let backdropPath = movie.backdropPath {
             Utils().loadImage(backdropPath, movieImageView)
         }
@@ -34,5 +39,29 @@ class DetailsMovieViewController: UIViewController {
         titleLabel.text = movie.title
         overviewLabel.text = movie.overview
     }
-
+    
+    private func isFavorite(movies: [Movie], movie:Movie) -> Bool {
+        movies.contains(where: { $0.id == movie.id }) ? true : false
+    }
+    
+    private func changeLayoutButton(_ button: UIButton, title: String, color:UIColor) {
+        button.setTitle(title, for: .normal)
+        button.backgroundColor = color
+    }
+    
+    @IBAction func favoriteMovie(_ sender: UIButton) {
+        
+        var movies:[Movie] = Utils().loadFavoriteMovies()
+        guard let movie = self.movie else { return }
+        
+        if isFavorite(movies: movies, movie: movie) {
+            Utils().removeFavoriteMovie(id: movie.id!)
+            changeLayoutButton(sender, title: "Favoritar", color: .white)
+        } else {
+            movies.append(movie)
+            Utils().saveFavoriteMovies(movies: movies)
+            changeLayoutButton(sender, title: "Sou favorito!", color: .red)
+        }
+    }
+    
 }
