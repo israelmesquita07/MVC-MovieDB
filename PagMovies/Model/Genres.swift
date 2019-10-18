@@ -13,6 +13,6 @@ struct Genres: Decodable {
 }
 
 struct Genre: Decodable {
-    let id: Int?
+    let id: Double?
     let name: String?
 }

@@ -12,6 +12,7 @@ class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var moviesArray:[Movie] = []
+    private var genresArray:[Genre] = []
     private var isOrderAsc: Bool = false
     
     override func viewDidLoad() {
@@ -27,6 +28,15 @@ class MoviesViewController: UIViewController {
         }) { (error) in
             print(error)
         }
+        
+        API().getGenres(onComplete: { (genres) in
+            guard let genres = genres.genres else { return }
+            self.genresArray = genres
+        }) { (error) in
+            print(error)
+        }
+        
+        
     }
     
     private func setup() {
@@ -56,7 +66,7 @@ extension MoviesViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! MovieTableViewCell
         let movie = moviesArray[indexPath.row]
-        cell.setupCell(movie)
+        cell.setupCell(movie, genresArray)
         return cell
     }
 }

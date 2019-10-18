@@ -19,7 +19,7 @@ class MovieTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func setupCell(_ movie: Movie) {
+    func setupCell(_ movie: Movie,_ genres: [Genre]) {
         
         if let backdropPath = movie.backdropPath {
             Utils().loadImage(backdropPath, movieImageView)
@@ -28,7 +28,7 @@ class MovieTableViewCell: UITableViewCell {
             dateLabel.text = Utils().changeDate(releaseDate)
         }
         titleLabel.text = movie.title
-        genderLabel.text = "Aventura"
+        genderLabel.text = Utils().getJoinedGenres(movie, genres)
     }
     
 }

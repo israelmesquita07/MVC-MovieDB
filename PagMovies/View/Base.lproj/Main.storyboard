@@ -20,7 +20,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="O5d-pL-lwS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iey-Hy-dMK"/>
                             <constraint firstItem="O5d-pL-lwS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jq0-FL-1UM"/>
@@ -29,8 +28,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Filmes" id="6fu-4b-MCq">
+                    <navigationItem key="navigationItem" title="Filmes" largeTitleDisplayMode="always" id="6fu-4b-MCq">
                         <barButtonItem key="rightBarButtonItem" image="arrow.up.arrow.down" catalog="system" id="krE-2m-8Hw">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="sortAscAndDesc:" destination="BYZ-38-t0r" id="sys-8M-cBX"/>
                             </connections>
@@ -44,7 +44,7 @@
             </objects>
             <point key="canvasLocation" x="3895.1999999999998" y="129.98500749625188"/>
         </scene>
-        <!--Favorites View Controller-->
+        <!--Favoritos-->
         <scene sceneID="0cs-69-Ow9">
             <objects>
                 <viewController storyboardIdentifier="FavoritesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="71n-0C-sjo" customClass="FavoritesViewController" customModule="PagMovies" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,7 +57,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DTZ-7O-mtp" firstAttribute="bottom" secondItem="eUg-8y-5LO" secondAttribute="bottom" id="Lj9-ZY-CES"/>
                             <constraint firstItem="DTZ-7O-mtp" firstAttribute="trailing" secondItem="eUg-8y-5LO" secondAttribute="trailing" id="Rp0-KA-Kgw"/>
@@ -66,7 +65,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DTZ-7O-mtp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MBc-tX-i8I"/>
+                    <navigationItem key="navigationItem" title="Favoritos" largeTitleDisplayMode="always" id="MBc-tX-i8I"/>
                     <connections>
                         <outlet property="tableView" destination="eUg-8y-5LO" id="B1B-30-B2l"/>
                     </connections>
@@ -127,10 +126,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFM-fR-NDT">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="BlU-HM-wIy"/>
                                 </constraints>
-                                <state key="normal" title="Favoritar"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Favoritar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="favoriteMovie:" destination="V2P-Aj-gKB" eventType="touchUpInside" id="ADv-8P-cRw"/>
                                 </connections>
@@ -186,6 +189,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XEE-4a-2lc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.047058823530000002" green="0.1529411765" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -205,6 +209,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cev-BK-Umo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.047058823530000002" green="0.1529411765" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -224,6 +229,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="S3v-YT-CGK" kind="relationship" relationship="viewControllers" id="TPD-sI-17f"/>

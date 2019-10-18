@@ -56,7 +56,7 @@ class DetailsMovieViewController: UIViewController {
         
         if isFavorite(movies: movies, movie: movie) {
             Utils().removeFavoriteMovie(id: movie.id!)
-            changeLayoutButton(sender, title: "Favoritar", color: .white)
+            changeLayoutButton(sender, title: "Favoritar", color: .blue)
         } else {
             movies.append(movie)
             Utils().saveFavoriteMovies(movies: movies)

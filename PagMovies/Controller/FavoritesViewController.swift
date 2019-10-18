@@ -12,7 +12,8 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var moviesArray:[Movie] = []
-
+    private var genresArray:[Genre] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,16 +21,35 @@ class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setup()
+        getGenres()
     }
     
     private func setup() {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
         moviesArray = Utils().loadFavoriteMovies()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        if moviesArray.isEmpty {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
+    
+    private func getGenres() {
+        
+        if !moviesArray.isEmpty {
+            API().getGenres(onComplete: { (genres) in
+                guard let genres = genres.genres else { return }
+                self.genresArray = genres
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }) { (error) in
+                print(error)
+            }
+        }
+    }
+    
 }
 
 
@@ -43,7 +63,7 @@ extension FavoritesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! MovieTableViewCell
         let movie = moviesArray[indexPath.row]
-        cell.setupCell(movie)
+        cell.setupCell(movie, genresArray)
         return cell
     }
     

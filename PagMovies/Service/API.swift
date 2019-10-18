@@ -38,12 +38,11 @@ class API: APIService {
     
     func getGenres(onComplete:@escaping(Genres) -> Void, onError:@escaping(Error) -> Void) {
         if let url = URL(string: Endpoints.getGenres) {
-            let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 
                 if error == nil {
-                    guard let self = self else { return }
-                    guard let data = data else { return }
                     
+                    guard let data = data else { return }
                     if let dictJson = self.parseDataToDictionary(data) {
                         
                         if let model = try? JSONDecoder().decode(Genres.self, from: JSONSerialization.data(withJSONObject: dictJson, options: .prettyPrinted)) {

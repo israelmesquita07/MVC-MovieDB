@@ -18,7 +18,7 @@ class Movie: Codable {
     let overview: String?
     let releaseDate: String?
     let backdropPath: String?
-    let genreIds: [Int]?
+    let genreIds: [Double]?
     
     enum CodingKeys: String, CodingKey {
         case id

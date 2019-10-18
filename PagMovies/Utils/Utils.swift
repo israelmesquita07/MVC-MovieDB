@@ -58,4 +58,15 @@ class Utils {
         return movies.sorted { $0.title!.localizedCaseInsensitiveCompare($1.title!) == ComparisonResult.orderedDescending }
     }
     
+    func getJoinedGenres(_ movie: Movie, _ genres: [Genre]) -> String {
+        
+        if !genres.isEmpty {
+            let movieGenres:[Genre] = genres.filter({ (movie.genreIds?.contains($0.id ?? 0))! })
+            let genresDescription: [String] = movieGenres.map { $0.name ?? "" }
+            return genresDescription.compactMap{ $0 }.joined(separator: ", ")
+        }
+        
+        return "Sem gênero listado"
+    }
+    
 }
