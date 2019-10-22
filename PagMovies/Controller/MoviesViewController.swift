@@ -12,19 +12,29 @@ class MoviesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var moviesArray:[Movie] = []
-    private var genresArray:[Genre] = []
+    public var genresArray:[Genre] = []
     private var isOrderAsc: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        getAPIData()
+    }
+    
+    private func setup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+    }
+    
+    private func getAPIData() {
+        
         API().getMovies(onComplete: { (result) in
             guard let movies = result.results else { return }
             self.moviesArray = movies
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
         }) { (error) in
             print(error)
         }
@@ -35,14 +45,6 @@ class MoviesViewController: UIViewController {
         }) { (error) in
             print(error)
         }
-        
-        
-    }
-    
-    private func setup() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
     }
     
     @IBAction func sortAscAndDesc(_ sender: UIBarButtonItem) {

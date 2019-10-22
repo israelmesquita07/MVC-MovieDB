@@ -11,8 +11,18 @@ import XCTest
 
 class PagMoviesTests: XCTestCase {
 
+    var sut:DetailsMovieViewController!
+    var movie:Movie!
+    var genres:[Genre]!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        movie = getAPIMovieData()?[0]
+        genres = getAPIGenreData()
+        guard movie != nil else { return }
+        guard genres != nil else { return }
+        sut = DetailsMovieViewController()
+        sut.movie = movie
     }
 
     override func tearDown() {
@@ -22,6 +32,10 @@ class PagMoviesTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        guard movie != nil else { return }
+        XCTAssertEqual(movie.title, sut.movie?.title, "Objetos Iguais")
+        XCTAssert(movie.id != nil)
+        XCTAssert(genres.count > 0 , "Teste retorno API")
     }
 
     func testPerformanceExample() {
@@ -29,6 +43,40 @@ class PagMoviesTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    private func getAPIMovieData() -> [Movie]? {
+        
+        if let path = Bundle.main.path(forResource: "Movies", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                if let result = try? decoder.decode(Result.self, from: data) {
+                    return result.results
+                }
+            } catch let error {
+                print("Error: \(error)")
+            }
+        }
+        return nil
+    }
+    
+    private func getAPIGenreData() -> [Genre]? {
+        
+        if let path = Bundle.main.path(forResource: "Genres", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                if let genres = try? decoder.decode(Genres.self, from: data) {
+                    return genres.genres
+                }
+            } catch let error {
+                print("Error: \(error)")
+            }
+        }
+        return nil
     }
 
 }
